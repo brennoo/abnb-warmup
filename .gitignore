@@ -99,3 +99,9 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# serverless
+.serverless/
+node_modules/
+package-lock.json
+serverless

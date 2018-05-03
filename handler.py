@@ -1,4 +1,5 @@
 from botocore.vendored import requests
+import os
 
 sites = {
     "us-east-2": ["https://www.airbnb.com"],
@@ -56,8 +57,8 @@ sites = {
 
 
 def run(event, context):
-    rooms = event['rooms']
-    region = event['region']
+    rooms = os.getenv('rooms').split()
+    region = os.getenv('region').split()
     for site in sites[region]:
         for room in rooms:
             print(region, site + '/rooms/' + room)

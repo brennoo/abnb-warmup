@@ -6,7 +6,7 @@ provider:
   name: aws
   runtime: python3.6
   timeout: 30
-  region: ${self:custom.env.profile, 'us-east-1'}
+  region: ${self:custom.env.region, 'us-east-1'}
   profile: ${self:custom.env.profile, 'default'}
   stage: ${self:custom.env.stage, 'dev'}
   environment:
@@ -15,7 +15,7 @@ provider:
 custom:
   env: ${file(${opt:environment})}
 functions:
-  keep_warm:
+  warmup:
     handler: handler.run
     events:
       # Invoke Lambda function every hour
