@@ -1,4 +1,4 @@
-import requests
+from botocore.vendored import requests
 
 sites = {
     "us-east-2": ["https://www.airbnb.com"],
@@ -61,5 +61,5 @@ def run(event, context):
     for site in sites[region]:
         for room in rooms:
             print(region, site + '/rooms/' + room)
-            #resp = requests.get(site+'/rooms/'+room)
+            resp = requests.get(site+'/rooms/'+room)
             print(site, resp.status_code)

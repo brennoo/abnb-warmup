@@ -1,4 +1,0 @@
-stage: test
-profile: aws-test-profile
-region: eu-west-1
-rooms: [12345, 13356]
