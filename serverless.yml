@@ -1,0 +1,22 @@
+service: abnb-warmup
+
+frameworkVersion: ">=1.2.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: python3.6
+  timeout: 30
+  region: ${self:custom.env.profile, 'us-east-1'}
+  profile: ${self:custom.env.profile, 'default'}
+  stage: ${self:custom.env.stage, 'dev'}
+  environment:
+    rooms: ${self:custom.env.rooms, '123456'}
+    region: ${self:custom.env.region, 'us-east-1'}
+custom:
+  env: ${file(${opt:environment})}
+functions:
+  keep_warm:
+    handler: handler.run
+    events:
+      # Invoke Lambda function every hour
+      - schedule: rate(1 hour)

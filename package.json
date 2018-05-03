@@ -1,0 +1,7 @@
+{
+  "name": "abnb-warmup",
+  "version": "0.0.1",
+  "description": "Lambda function that runs as a cron job to keep url being called periodically",
+  "author": "brennoo",
+  "license": "UNLICENSED"
+}
